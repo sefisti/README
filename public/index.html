@@ -24,15 +24,21 @@
   </div>
 </header>
 
-<main>
-  <section id="timelineSection">
+<main class="layout">
+  <section id="timelineSection" class="panel">
+    <div class="panel-head">
+      <h2>Schedule</h2>
+      <span class="hint">Striped tails = travel + buffer to the next stop</span>
+    </div>
     <div id="timeline" class="timeline"></div>
   </section>
 
-  <section id="listSection">
-    <h2 id="listTitle">Bookings</h2>
+  <aside id="listSection" class="panel sidebar">
+    <div class="panel-head">
+      <h2 id="listTitle">Bookings</h2>
+    </div>
     <div id="bookingList" class="booking-list"></div>
-  </section>
+  </aside>
 </main>
 
 <!-- New / edit booking modal -->
