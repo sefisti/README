@@ -80,7 +80,7 @@ function renderProviderBadge() {
 }
 
 function timelineWindow() {
-  let start = 10 * 60, end = 22 * 60;
+  let start = Infinity, end = -Infinity;
   for (const row of state.schedule.therapists) {
     for (const b of row.bookings) {
       if (b.status === 'cancelled') continue;
@@ -88,6 +88,8 @@ function timelineWindow() {
       end = Math.max(end, minutesOf(b.end_time));
     }
   }
+  if (!Number.isFinite(start)) { start = 10 * 60; end = 22 * 60; }
+  if (end - start < 6 * 60) end = start + 6 * 60; // keep blocks readable
   start = Math.max(0, Math.floor(start / 60) * 60 - 60);
   end = Math.min(24 * 60, Math.ceil(end / 60) * 60 + 60);
   return { start, end };
