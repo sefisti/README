@@ -55,6 +55,41 @@ function esc(s) {
   return d.innerHTML;
 }
 
+// Normalize a <input type="date"> value to 'YYYY-MM-DD'. Browsers that
+// support the date input always return this format, but some browsers
+// (older Safari, some Android webviews) fall back to a plain text field
+// where users may type 'M/D/YYYY' etc. Returns null if unparseable.
+function normalizeDate(raw) {
+  const v = String(raw || '').trim();
+  if (/^\d{4}-\d{2}-\d{2}$/.test(v)) return v;
+  const m = /^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})$/.exec(v);
+  if (m) {
+    const [, a, b, year] = m;
+    // Assume M/D/YYYY (common fallback locale); pad to 2 digits.
+    return `${year}-${a.padStart(2, '0')}-${b.padStart(2, '0')}`;
+  }
+  return null;
+}
+
+// Normalize a <input type="time"> value to 24-hour 'HH:MM'. Standards-
+// compliant browsers always return this, but text-input fallbacks may give
+// '10:00 PM', '9:00', etc. Returns null if unparseable.
+function normalizeTime(raw) {
+  const v = String(raw || '').trim();
+  if (/^\d{2}:\d{2}$/.test(v)) return v;
+  const m = /^(\d{1,2}):(\d{2})\s*(am|pm)?$/i.exec(v);
+  if (!m) return null;
+  let [, h, min, ampm] = m;
+  h = Number(h);
+  if (ampm) {
+    if (h < 1 || h > 12) return null;
+    if (ampm.toLowerCase() === 'pm' && h !== 12) h += 12;
+    if (ampm.toLowerCase() === 'am' && h === 12) h = 0;
+  }
+  if (h > 23 || Number(min) > 59) return null;
+  return `${String(h).padStart(2, '0')}:${min}`;
+}
+
 function shiftDate(days) {
   const d = new Date(state.date + 'T12:00');
   d.setDate(d.getDate() + days);
@@ -197,14 +232,18 @@ function openBookingModal(existing) {
   $('#bookingModal').showModal();
 }
 
+// Returns the form data with a normalized start_time, or null in
+// start_time if the date/time fields couldn't be parsed.
 function bookingFormPayload() {
+  const date = normalizeDate($('#bk_date').value);
+  const time = normalizeTime($('#bk_time').value);
   return {
     client_name: $('#bk_client').value.trim(),
     contact: $('#bk_contact').value.trim(),
     address: $('#bk_address').value.trim(),
     service_type: $('#bk_service').value.trim(),
     duration_min: Number($('#bk_duration').value),
-    start_time: `${$('#bk_date').value}T${$('#bk_time').value}`,
+    start_time: date && time ? `${date}T${time}` : null,
     price: $('#bk_price').value.trim(),
     notes: $('#bk_notes').value.trim()
   };
@@ -216,6 +255,11 @@ async function checkFeasibility() {
   const p = bookingFormPayload();
   if (!p.address || !$('#bk_date').value || !$('#bk_time').value) {
     err.textContent = 'Fill in address, date and start time first.';
+    return;
+  }
+  if (!p.start_time) {
+    err.textContent = 'Date or start time isn\'t in a recognized format. ' +
+      'Try entering the date as YYYY-MM-DD and the time as HH:MM (e.g. 22:00 or 10:00 PM).';
     return;
   }
   const btn = $('#checkFeasBtn');
