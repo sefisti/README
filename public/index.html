@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Massage Booking Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <h1>🛋️ Booking Dashboard</h1>
+  <div class="date-nav">
+    <button id="prevDay" class="icon-btn" title="Previous day">◀</button>
+    <input type="date" id="datePicker">
+    <button id="nextDay" class="icon-btn" title="Next day">▶</button>
+    <button id="todayBtn" class="ghost-btn">Today</button>
+  </div>
+  <div class="topbar-actions">
+    <span id="providerBadge" class="badge" title="Travel time source"></span>
+    <button id="therapistsBtn" class="ghost-btn">Therapists</button>
+    <button id="settingsBtn" class="ghost-btn">⚙ Buffer</button>
+    <button id="newBookingBtn" class="primary-btn">+ New booking</button>
+  </div>
+</header>
+
+<main>
+  <section id="timelineSection">
+    <div id="timeline" class="timeline"></div>
+  </section>
+
+  <section id="listSection">
+    <h2 id="listTitle">Bookings</h2>
+    <div id="bookingList" class="booking-list"></div>
+  </section>
+</main>
+
+<!-- New / edit booking modal -->
+<dialog id="bookingModal">
+  <form id="bookingForm" method="dialog">
+    <h2 id="bookingModalTitle">New booking</h2>
+    <input type="hidden" id="bk_id">
+    <div class="grid2">
+      <label>Client name *<input id="bk_client" required></label>
+      <label>Contact number<input id="bk_contact" inputmode="tel" placeholder="09xx xxx xxxx"></label>
+    </div>
+    <label>Address *<input id="bk_address" required placeholder="Blk/Lot, Street, Barangay, City"
+      list="knownAreas"></label>
+    <datalist id="knownAreas"></datalist>
+    <div class="grid2">
+      <label>Service *
+        <input id="bk_service" required list="serviceTypes" placeholder="e.g. Swedish">
+        <datalist id="serviceTypes">
+          <option>Swedish</option><option>Shiatsu</option><option>Combination</option>
+          <option>Hot Stone</option><option>Foot Massage</option><option>Couples (2 pax)</option>
+        </datalist>
+      </label>
+      <label>Duration *
+        <select id="bk_duration">
+          <option value="60">60 min</option>
+          <option value="90" selected>90 min</option>
+          <option value="120">120 min</option>
+          <option value="150">150 min</option>
+          <option value="180">180 min</option>
+        </select>
+      </label>
+    </div>
+    <div class="grid2">
+      <label>Date *<input type="date" id="bk_date" required></label>
+      <label>Start time *<input type="time" id="bk_time" required step="300"></label>
+    </div>
+    <div class="grid2">
+      <label>Price<input id="bk_price" inputmode="decimal" placeholder="₱"></label>
+      <label>Notes<input id="bk_notes"></label>
+    </div>
+
+    <div class="feas-actions">
+      <button type="button" id="checkFeasBtn" class="primary-btn">Check who can take it</button>
+    </div>
+    <div id="feasResults" class="feas-results"></div>
+
+    <div class="modal-actions">
+      <button type="button" class="ghost-btn" data-close>Cancel</button>
+      <button type="submit" id="saveBookingBtn" class="primary-btn" disabled>Save booking</button>
+    </div>
+    <p id="bookingError" class="error"></p>
+  </form>
+</dialog>
+
+<!-- Booking detail modal -->
+<dialog id="detailModal">
+  <div id="detailBody"></div>
+  <div class="status-actions" id="statusActions"></div>
+  <div class="modal-actions">
+    <button type="button" class="danger-btn" id="deleteBookingBtn">Delete</button>
+    <button type="button" class="ghost-btn" id="editBookingBtn">Edit</button>
+    <button type="button" class="ghost-btn" data-close>Close</button>
+  </div>
+</dialog>
+
+<!-- Therapists modal -->
+<dialog id="therapistModal">
+  <h2>Therapists</h2>
+  <div id="therapistList"></div>
+  <form id="therapistForm">
+    <h3>Add therapist</h3>
+    <div class="grid3">
+      <label>Name *<input id="th_name" required></label>
+      <label>Works from<input type="time" id="th_start" value="10:00"></label>
+      <label>Until<input type="time" id="th_end" value="23:59"></label>
+    </div>
+    <div class="modal-actions">
+      <button type="button" class="ghost-btn" data-close>Close</button>
+      <button type="submit" class="primary-btn">Add</button>
+    </div>
+  </form>
+</dialog>
+
+<!-- Settings modal -->
+<dialog id="settingsModal">
+  <form id="settingsForm">
+    <h2>Travel buffer</h2>
+    <p class="hint">Extra slack added on top of the travel-time estimate, to absorb
+      traffic and delays. Buffer = flat minutes + % of travel time.</p>
+    <div class="grid2">
+      <label>Flat minutes<input type="number" id="set_min" min="0" step="1"></label>
+      <label>% of travel time<input type="number" id="set_pct" min="0" step="5"></label>
+    </div>
+    <p class="hint" id="bufferExample"></p>
+    <div class="modal-actions">
+      <button type="button" class="ghost-btn" data-close>Cancel</button>
+      <button type="submit" class="primary-btn">Save</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="app.js"></script>
+</body>
+</html>
