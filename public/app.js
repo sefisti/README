@@ -379,24 +379,51 @@ async function openTherapists() {
   const list = await api('/api/therapists');
   $('#therapistList').innerHTML = list.length
     ? list.map((t) => `
-        <div class="th-row">
-          <span>${esc(t.name)}${t.active ? '' : ' (inactive)'}</span>
-          <span class="hours">${t.work_start}–${t.work_end}</span>
-          <button class="ghost-btn" data-id="${t.id}" data-active="${t.active}">
+        <div class="th-row" data-id="${t.id}">
+          <span class="th-name">${esc(t.name)}${t.active ? '' : ' (inactive)'}</span>
+          <label class="th-hours-label">From
+            <input type="time" class="th-start" value="${t.work_start}">
+          </label>
+          <label class="th-hours-label">Until
+            <input type="time" class="th-end" value="${t.work_end}">
+          </label>
+          <button class="ghost-btn th-save">Save</button>
+          <button class="ghost-btn th-toggle" data-active="${t.active}">
             ${t.active ? 'Deactivate' : 'Activate'}
           </button>
+          <span class="th-saved hint"></span>
         </div>`).join('')
     : '<p class="hint">No therapists yet.</p>';
-  $('#therapistList').querySelectorAll('button').forEach((btn) =>
-    btn.addEventListener('click', async () => {
-      await api(`/api/therapists/${btn.dataset.id}`, {
+
+  $('#therapistList').querySelectorAll('.th-row').forEach((row) => {
+    const id = row.dataset.id;
+    row.querySelector('.th-save').addEventListener('click', async () => {
+      const saved = row.querySelector('.th-saved');
+      // normalizeTime handles text-input fallbacks like '02:00 PM'.
+      const work_start = normalizeTime(row.querySelector('.th-start').value);
+      const work_end = normalizeTime(row.querySelector('.th-end').value);
+      if (!work_start || !work_end) {
+        saved.textContent = 'Times must be HH:MM (e.g. 14:00 or 2:00 PM)';
+        return;
+      }
+      try {
+        await api(`/api/therapists/${id}`, { method: 'PATCH', body: { work_start, work_end } });
+        saved.textContent = 'Saved ✓';
+        setTimeout(() => { saved.textContent = ''; }, 1500);
+        refresh();
+      } catch (e) {
+        saved.textContent = e.message;
+      }
+    });
+    row.querySelector('.th-toggle').addEventListener('click', async (e) => {
+      await api(`/api/therapists/${id}`, {
         method: 'PATCH',
-        body: { active: btn.dataset.active === '1' ? 0 : 1 }
+        body: { active: e.target.dataset.active === '1' ? 0 : 1 }
       });
       openTherapists();
       refresh();
-    })
-  );
+    });
+  });
   $('#therapistModal').showModal();
 }
 
@@ -459,13 +486,15 @@ document.addEventListener('DOMContentLoaded', () => {
   $('#therapistsBtn').addEventListener('click', openTherapists);
   $('#therapistForm').addEventListener('submit', async (e) => {
     e.preventDefault();
+    const work_start = normalizeTime($('#th_start').value);
+    const work_end = normalizeTime($('#th_end').value);
+    if (!work_start || !work_end) {
+      alert('Working hours must be HH:MM (e.g. 14:00 or 2:00 PM).');
+      return;
+    }
     await api('/api/therapists', {
       method: 'POST',
-      body: {
-        name: $('#th_name').value,
-        work_start: $('#th_start').value,
-        work_end: $('#th_end').value
-      }
+      body: { name: $('#th_name').value, work_start, work_end }
     });
     $('#th_name').value = '';
     openTherapists();

@@ -167,8 +167,17 @@ form > label { margin: .55rem 0; }
 .th-row {
   display: flex; align-items: center; gap: .6rem; font-size: .88rem;
   border: 1px solid var(--line); border-radius: 10px; padding: .5rem .65rem;
+  flex-wrap: wrap;
 }
-.th-row .hours { color: var(--muted); font-size: .78rem; margin-left: auto; }
+.th-row .th-name { font-weight: 600; flex: 1 1 100%; }
+.th-hours-label {
+  flex-direction: row; align-items: center; gap: .35rem;
+  font-size: .78rem; white-space: nowrap;
+}
+.th-hours-label input { width: auto; padding: .3rem .4rem; font-size: .82rem; }
+.th-row .th-save, .th-row .th-toggle { padding: .3rem .6rem; font-size: .8rem; }
+.th-row .th-toggle { margin-left: auto; }
+.th-saved { color: var(--ok); min-width: 0; }
 
 @media (max-width: 640px) {
   .grid2, .grid3 { grid-template-columns: 1fr; }

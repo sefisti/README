@@ -38,9 +38,22 @@ app.get('/api/therapists', (req, res) => {
   res.json(db.prepare('SELECT * FROM therapists ORDER BY name').all());
 });
 
+// Working hours are compared lexicographically as `${day}T${HH:MM}` in the
+// feasibility checks, so they must be strict zero-padded 24h HH:MM.
+const HM_RE = /^([01]\d|2[0-3]):[0-5]\d$/;
+
+function validateWorkHours(work_start, work_end) {
+  if (!HM_RE.test(work_start)) return 'work_start must be HH:MM (24-hour, e.g. 14:00)';
+  if (!HM_RE.test(work_end)) return 'work_end must be HH:MM (24-hour, e.g. 23:59)';
+  if (work_end <= work_start) return 'work_end must be after work_start';
+  return null;
+}
+
 app.post('/api/therapists', (req, res) => {
   const { name, work_start = '10:00', work_end = '23:59' } = req.body || {};
   if (!name || !String(name).trim()) return badRequest(res, 'name is required');
+  const hoursErr = validateWorkHours(work_start, work_end);
+  if (hoursErr) return badRequest(res, hoursErr);
   const info = db
     .prepare('INSERT INTO therapists (name, work_start, work_end) VALUES (?, ?, ?)')
     .run(String(name).trim(), work_start, work_end);
@@ -51,6 +64,8 @@ app.patch('/api/therapists/:id', (req, res) => {
   const t = db.prepare('SELECT * FROM therapists WHERE id = ?').get(req.params.id);
   if (!t) return res.status(404).json({ error: 'therapist not found' });
   const { name = t.name, work_start = t.work_start, work_end = t.work_end, active = t.active } = req.body || {};
+  const hoursErr = validateWorkHours(work_start, work_end);
+  if (hoursErr) return badRequest(res, hoursErr);
   db.prepare('UPDATE therapists SET name = ?, work_start = ?, work_end = ?, active = ? WHERE id = ?')
     .run(name, work_start, work_end, active ? 1 : 0, t.id);
   res.json(db.prepare('SELECT * FROM therapists WHERE id = ?').get(t.id));

@@ -160,6 +160,35 @@ test('API: create booking and check feasibility end-to-end', async () => {
     assert.equal(sched.travel_provider, 'mock');
     const row = sched.therapists.find((r) => r.therapist.id === t.id);
     assert.equal(row.bookings.length, 1);
+
+    // Update working hours via PATCH and confirm they persist.
+    res = await fetch(`${base}/api/therapists/${t.id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ work_start: '10:00', work_end: '22:00' })
+    });
+    assert.equal(res.status, 200);
+    const updated = await res.json();
+    assert.equal(updated.work_start, '10:00');
+    assert.equal(updated.work_end, '22:00');
+
+    // Invalid hour formats are rejected.
+    for (const bad of [{ work_start: '2pm' }, { work_end: '25:00' }, { work_start: '9:00' }]) {
+      res = await fetch(`${base}/api/therapists/${t.id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(bad)
+      });
+      assert.equal(res.status, 400, `expected 400 for ${JSON.stringify(bad)}`);
+    }
+
+    // End before start is rejected.
+    res = await fetch(`${base}/api/therapists/${t.id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ work_start: '20:00', work_end: '10:00' })
+    });
+    assert.equal(res.status, 400);
   } finally {
     server.close();
   }
