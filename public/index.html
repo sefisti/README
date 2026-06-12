@@ -8,38 +8,68 @@
 </head>
 <body>
 
-<header class="topbar">
-  <h1>🛋️ Booking Dashboard</h1>
-  <div class="date-nav">
-    <button id="prevDay" class="icon-btn" title="Previous day">◀</button>
-    <input type="date" id="datePicker">
-    <button id="nextDay" class="icon-btn" title="Next day">▶</button>
-    <button id="todayBtn" class="ghost-btn">Today</button>
-  </div>
-  <div class="topbar-actions">
-    <span id="providerBadge" class="badge" title="Travel time source"></span>
-    <button id="therapistsBtn" class="ghost-btn">Therapists</button>
-    <button id="settingsBtn" class="ghost-btn">⚙ Buffer</button>
-    <button id="newBookingBtn" class="primary-btn">+ New booking</button>
-  </div>
-</header>
+<div class="app-shell">
 
-<main class="layout">
-  <section id="timelineSection" class="panel">
-    <div class="panel-head">
-      <h2>Schedule</h2>
-      <span class="hint">Striped tails = travel + buffer to the next stop</span>
+  <aside class="nav-rail">
+    <div class="brand">
+      <span class="brand-mark">🛋️</span>
+      <span class="brand-name">Booking Desk</span>
     </div>
-    <div id="timeline" class="timeline"></div>
-  </section>
+    <nav class="nav">
+      <div class="nav-section">General</div>
+      <span class="nav-item active"><span class="nav-ico">🗓</span>Appointments</span>
 
-  <aside id="listSection" class="panel sidebar">
-    <div class="panel-head">
-      <h2 id="listTitle">Bookings</h2>
+      <div class="nav-section">Operations</div>
+      <button id="therapistsBtn" class="nav-item"><span class="nav-ico">💆</span>Therapists</button>
+      <button id="settingsBtn" class="nav-item"><span class="nav-ico">⏱</span>Travel buffer</button>
+
+      <div class="nav-section">Coming soon</div>
+      <span class="nav-item disabled"><span class="nav-ico">🗺</span>Map view<i class="soon">soon</i></span>
+      <span class="nav-item disabled"><span class="nav-ico">📈</span>Reports<i class="soon">soon</i></span>
+    </nav>
+    <div class="nav-foot">
+      <span id="providerBadge" class="badge" title="Travel time source"></span>
     </div>
-    <div id="bookingList" class="booking-list"></div>
   </aside>
-</main>
+
+  <div class="main-col">
+    <div class="page-head">
+      <div>
+        <h1>Appointments</h1>
+        <p class="page-sub">Door-to-door massage scheduling with travel-time feasibility checks.</p>
+      </div>
+    </div>
+
+    <div class="controls-row">
+      <div class="date-nav">
+        <button id="prevDay" class="icon-btn" title="Previous day">‹</button>
+        <input type="date" id="datePicker">
+        <button id="nextDay" class="icon-btn" title="Next day">›</button>
+      </div>
+      <button id="todayBtn" class="ghost-btn">Today</button>
+      <span class="spacer"></span>
+      <button id="newBookingBtn" class="primary-btn">+ New booking</button>
+    </div>
+
+    <main class="layout">
+      <section id="timelineSection" class="panel">
+        <div class="panel-head">
+          <h2>Schedule</h2>
+          <span class="hint">Striped tails = travel + buffer to the next stop</span>
+        </div>
+        <div id="timeline" class="timeline"></div>
+      </section>
+
+      <aside id="listSection" class="panel sidebar">
+        <div class="panel-head">
+          <h2 id="listTitle">Bookings</h2>
+        </div>
+        <div id="bookingList" class="booking-list"></div>
+      </aside>
+    </main>
+  </div>
+
+</div>
 
 <!-- New / edit booking modal -->
 <dialog id="bookingModal">
