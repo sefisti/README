@@ -77,7 +77,8 @@ function normalizeDate(raw) {
 function normalizeTime(raw) {
   const v = String(raw || '').trim();
   if (/^\d{2}:\d{2}$/.test(v)) return v;
-  const m = /^(\d{1,2}):(\d{2})\s*(am|pm)?$/i.exec(v);
+  // Allow an optional :SS (some browsers' time pickers include seconds).
+  const m = /^(\d{1,2}):(\d{2})(?::\d{2})?\s*(am|pm)?$/i.exec(v);
   if (!m) return null;
   let [, h, min, ampm] = m;
   h = Number(h);
