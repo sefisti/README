@@ -81,7 +81,16 @@
     font-weight: 600;
     letter-spacing: 0.22em;
     color: var(--gold);
+    display: flex;
+    align-items: center;
   }
+  .nav-logo svg {
+    height: 46px;
+    width: auto;
+    display: block;
+    transition: transform 300ms ease;
+  }
+  .nav-logo:hover svg { transform: scale(1.06); }
   .nav-links {
     display: none;
     gap: 32px;
@@ -128,7 +137,7 @@
     .nav-links { display: flex; }
   }
   @media (max-width: 480px) {
-    .nav-logo { font-size: 20px; letter-spacing: 0.16em; }
+    .nav-logo svg { height: 38px; }
     .nav .btn-pill { padding: 9px 14px; font-size: 11px; }
     .nav-inner { height: 60px; }
   }
@@ -598,7 +607,19 @@
 <!-- SECTION B: FLOATING GLASSMORPHIC NAVIGATION HEADER -->
 <nav class="nav">
   <div class="container nav-inner">
-    <a href="#" class="nav-logo">SERENOVA</a>
+    <a href="#" class="nav-logo" aria-label="Serenova Wellness — home">
+      <svg viewBox="0 0 100 100" fill="none" role="img" aria-hidden="true">
+        <g fill="currentColor">
+          <path d="M50 50 C62 42 72 33 75 17 C60 27 54 39 50 50 Z"/>
+          <path d="M50 50 C38 42 28 33 25 17 C40 27 46 39 50 50 Z"/>
+          <path d="M50 51 C60 57 68 66 71 80 C59 66 54 59 50 51 Z"/>
+          <path d="M50 51 C40 57 32 66 29 80 C41 66 46 59 50 51 Z"/>
+        </g>
+        <path d="M50 31 C43 26 56 21 50 16 C44 11 55 7 49.5 2.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <circle cx="9" cy="49" r="3" fill="currentColor"/>
+        <circle cx="91" cy="49" r="3" fill="currentColor"/>
+      </svg>
+    </a>
     <ul class="nav-links">
       <li><a href="#services">Our Services</a></li>
       <li><a href="#safety">The Safety Ritual</a></li>
