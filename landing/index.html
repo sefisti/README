@@ -389,112 +389,91 @@
   }
   .journey-step p { color: var(--muted); font-size: 15px; }
 
-  /* ============ SECTION G: BOOKING TERMINAL ============ */
-  .booking-panel {
+  /* ============ SECTION G: MESSENGER BOOKING ============ */
+  .book-panel {
+    max-width: 560px;
+    margin: 0 auto;
+    text-align: center;
     background: rgba(20, 47, 37, 0.80);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--gold-20);
     border-radius: 18px;
-    padding: 36px;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 44px;
+    padding: 44px 36px;
   }
-  @media (min-width: 940px) {
-    .booking-panel { grid-template-columns: 1fr 1fr; }
-  }
-  .booking-col h3 {
-    font-family: var(--serif);
-    font-size: 26px;
-    font-weight: 600;
-    margin-bottom: 6px;
-  }
-  .booking-col .col-sub { color: var(--muted); font-size: 14px; margin-bottom: 22px; }
-
-  .copy-block {
-    background: var(--bg-deep);
-    border: 1px solid var(--gold-20);
-    border-radius: 10px;
-    padding: 18px 20px;
-    font-size: 13.5px;
-    line-height: 1.75;
-    color: var(--text);
-    white-space: pre-line;
-    margin-bottom: 10px;
-  }
-  .copy-note {
-    font-size: 12.5px;
-    font-style: italic;
-    color: var(--muted);
-    margin-bottom: 18px;
-  }
-  .gateway-row { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
-  .gateway-btn {
+  .book-icon {
+    width: 64px; height: 64px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    border: 1px solid var(--gold-30);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    border: 1px solid var(--gold-30);
-    border-radius: 999px;
-    padding: 13px 20px;
-    font-family: var(--label);
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--text);
-    background: transparent;
-    transition: all 300ms ease;
   }
-  .gateway-btn svg { width: 18px; height: 18px; flex: none; }
-  .gateway-whatsapp:hover { border-color: #25D366; box-shadow: 0 0 18px rgba(37, 211, 102, 0.25); }
-  .gateway-messenger:hover { border-color: #0084FF; box-shadow: 0 0 18px rgba(0, 132, 255, 0.25); }
-
-  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .form-grid > .form-field { min-width: 0; }
-  @media (max-width: 560px) {
-    .form-grid { grid-template-columns: 1fr; }
-    .form-field { grid-column: 1 / -1; }
-  }
-  .form-field { display: flex; flex-direction: column; gap: 6px; }
-  .form-field.full { grid-column: 1 / -1; }
-  .form-field label {
-    font-family: var(--label);
-    font-size: 11px;
+  .book-icon svg { width: 30px; height: 30px; }
+  .book-panel h3 {
+    font-family: var(--serif);
+    font-size: 28px;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--muted);
+    margin-bottom: 10px;
   }
-  .form-field input,
-  .form-field select,
-  .form-field textarea {
-    background: var(--bg-deep);
-    border: 1px solid var(--gold-20);
-    border-radius: 8px;
+  .book-lead { color: var(--muted); font-size: 15px; margin-bottom: 18px; }
+  .book-checklist {
+    list-style: none;
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .book-checklist li {
+    position: relative;
+    padding-left: 30px;
+    font-size: 14.5px;
     color: var(--text);
-    font-family: var(--sans);
-    font-size: 14px;
-    padding: 11px 14px;
-    transition: border-color 300ms ease;
+  }
+  .book-checklist li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 3px;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--gold-20);
+    border: 1px solid var(--gold-30);
+  }
+  .book-checklist li::after {
+    content: "";
+    position: absolute;
+    left: 6px; top: 7px;
+    width: 5px; height: 9px;
+    border: solid var(--gold);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  .btn-messenger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--gold);
+    color: var(--bg);
+    padding: 15px 34px;
+    font-size: 13px;
     width: 100%;
+    max-width: 400px;
   }
-  .form-field textarea { resize: vertical; min-height: 70px; }
-  .form-field input:focus,
-  .form-field select:focus,
-  .form-field textarea:focus {
-    outline: none;
-    border-color: var(--gold);
+  .btn-messenger svg { width: 20px; height: 20px; flex: none; }
+  .btn-messenger:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 26px rgba(197, 160, 89, 0.45);
   }
-  .form-field input::-webkit-calendar-picker-indicator { filter: invert(0.85); }
-  .toggle-row { display: flex; gap: 10px; }
-  .booking-notice {
+  .book-notice {
     font-size: 12.5px;
     color: var(--muted);
-    margin: 18px 0;
+    margin-top: 22px;
+    line-height: 1.7;
   }
-  #bookingForm .btn-pill { width: 100%; padding: 15px; }
 
   /* ============ FAQ ============ */
   .faq-list { max-width: 760px; margin: 0 auto; }
@@ -608,28 +587,6 @@
   }
   .console-toggle svg { width: 26px; height: 26px; stroke: var(--gold); }
 
-  /* ============ TOAST ============ */
-  .toast {
-    position: fixed;
-    bottom: 100px;
-    left: 50%;
-    transform: translate(-50%, 16px);
-    z-index: 80;
-    background: var(--gold);
-    color: var(--bg);
-    font-family: var(--label);
-    font-size: 13px;
-    font-weight: 700;
-    padding: 13px 26px;
-    border-radius: 999px;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 300ms ease;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
-    max-width: calc(100vw - 48px);
-    text-align: center;
-  }
-  .toast.show { opacity: 1; transform: translate(-50%, 0); }
 </style>
 </head>
 <body>
@@ -825,103 +782,32 @@
     </div>
   </section>
 
-  <!-- SECTION G: DOUBLE-GATEWAY LEAD ENGINE & BOOKING TERMINAL -->
+  <!-- SECTION G: MESSENGER BOOKING -->
   <section class="section" id="booking">
     <div class="container">
       <div class="section-header">
         <div class="section-kicker">Reserve Your Session</div>
         <h2 class="section-title">Book in Under a Minute</h2>
-        <p class="section-sub">Chat with our dispatch office directly, or use the secure web booking engine — whichever feels effortless.</p>
+        <p class="section-sub">One message is all it takes. Send us a note on Messenger and our dispatch office confirms your therapist, timing, and gate access.</p>
       </div>
-      <div class="booking-panel">
 
-        <!-- Left: Conversational Instant-Booking Terminal -->
-        <div class="booking-col">
-          <h3>Instant Chat Booking</h3>
-          <p class="col-sub">The fast path — copy the template, paste it into chat, and our dispatch office handles the rest.</p>
-          <div class="copy-block" id="bookingTemplate">SERENOVA WELLNESS BOOKING REGISTRY
-&bull; Lead Client Name: [ Enter Name ]
-&bull; Contact Phone: [ Enter Mobile ]
-&bull; Specific Residence Address:
-&bull; Targeted City:
-&bull; Desired Treatment:
-&bull; Selected Duration: [ 60 Mins / 90 Mins / 120 Mins ]
-&bull; Number of Clients:
-&bull; Scheduled Date &amp; Time:
-&bull; Gate Access Protocols: [ e.g., Pass required / Guardhouse pre-cleared ]</div>
-          <p class="copy-note">Notice: A 2-hour minimum per therapist applies to all domestic bookings.</p>
-          <button class="btn-pill btn-outline" id="copyTemplateBtn" style="width:100%">Copy Booking Template</button>
-          <div class="gateway-row">
-            <a class="gateway-btn gateway-whatsapp" id="whatsappGateway" href="#" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.11 3.22 5.1 4.51.71.31 1.27.5 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.82 9.82 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 9.88 9.89c0 5.45-4.44 9.88-9.89 9.88zm8.41-18.29A11.8 11.8 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.59 5.94L.06 24l6.31-1.65a11.88 11.88 0 0 0 5.68 1.44h.01c6.55 0 11.89-5.34 11.89-11.9a11.82 11.82 0 0 0-3.49-8.4z"/></svg>
-              Book Instantly via WhatsApp
-            </a>
-            <a class="gateway-btn gateway-messenger" href="https://m.me/serenovawellness" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="#0084FF"><path d="M12 0C5.24 0 0 4.95 0 11.64c0 3.5 1.43 6.52 3.77 8.61.2.17.31.43.32.7l.07 2.14c.02.68.72 1.12 1.34.85l2.39-1.06c.2-.09.43-.1.64-.05 1.1.3 2.26.46 3.47.46 6.76 0 12-4.95 12-11.65C24 4.95 18.76 0 12 0zm7.17 8.96l-3.52 5.59a1.8 1.8 0 0 1-2.6.48l-2.8-2.1a.72.72 0 0 0-.87 0l-3.78 2.87c-.5.38-1.16-.22-.83-.76l3.52-5.59a1.8 1.8 0 0 1 2.6-.48l2.8 2.1c.26.2.61.2.87 0l3.78-2.87c.5-.38 1.16.22.83.76z"/></svg>
-              Book Instantly via Messenger
-            </a>
-          </div>
+      <div class="book-panel">
+        <div class="book-icon">
+          <svg viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 0C5.24 0 0 4.95 0 11.64c0 3.5 1.43 6.52 3.77 8.61.2.17.31.43.32.7l.07 2.14c.02.68.72 1.12 1.34.85l2.39-1.06c.2-.09.43-.1.64-.05 1.1.3 2.26.46 3.47.46 6.76 0 12-4.95 12-11.65C24 4.95 18.76 0 12 0zm7.17 8.96l-3.52 5.59a1.8 1.8 0 0 1-2.6.48l-2.8-2.1a.72.72 0 0 0-.87 0l-3.78 2.87c-.5.38-1.16-.22-.83-.76l3.52-5.59a1.8 1.8 0 0 1 2.6-.48l2.8 2.1c.26.2.61.2.87 0l3.78-2.87c.5-.38 1.16.22.83.76z"/></svg>
         </div>
-
-        <!-- Right: Integrated Secure Web Booking Engine -->
-        <div class="booking-col">
-          <h3>Secure Web Booking</h3>
-          <p class="col-sub">A standard, self-directed checkout pipeline — we confirm by SMS or chat.</p>
-          <form id="bookingForm" novalidate>
-            <div class="form-grid">
-              <div class="form-field">
-                <label for="fullName">Full Name</label>
-                <input type="text" id="fullName" name="fullName" required autocomplete="name">
-              </div>
-              <div class="form-field">
-                <label for="mobile">Mobile Number</label>
-                <input type="tel" id="mobile" name="mobile" required autocomplete="tel" placeholder="09XX XXX XXXX">
-              </div>
-              <div class="form-field full">
-                <label for="style">Massage Style</label>
-                <select id="style" name="style" required>
-                  <option value="" disabled selected>Select a treatment&hellip;</option>
-                  <option>Swedish Massage</option>
-                  <option>Combination Massage</option>
-                  <option>Hot Stone Therapy</option>
-                  <option>Deep Tissue Massage</option>
-                  <option>Focus Trigger Point</option>
-                  <option>Signature Massage</option>
-                  <option>Traditional Ventosa</option>
-                </select>
-              </div>
-              <div class="form-field full">
-                <label>Preferred Duration</label>
-                <div class="toggle-row" id="formDurations">
-                  <button type="button" class="duration-btn" data-mins="60">60 Mins</button>
-                  <button type="button" class="duration-btn active" data-mins="90">90 Mins</button>
-                  <button type="button" class="duration-btn" data-mins="120">120 Mins</button>
-                </div>
-              </div>
-              <div class="form-field">
-                <label for="city">Location City</label>
-                <select id="city" name="city" required>
-                  <option value="" disabled selected>Select your city&hellip;</option>
-                  <option>Cabuyao</option>
-                  <option>Sta. Rosa</option>
-                  <option>Calamba</option>
-                  <option>Bi&ntilde;an</option>
-                </select>
-              </div>
-              <div class="form-field">
-                <label for="datetime">Preferred Date &amp; Time</label>
-                <input type="datetime-local" id="datetime" name="datetime" required>
-              </div>
-              <div class="form-field full">
-                <label for="address">Specific Estate / Gated Community Address</label>
-                <textarea id="address" name="address" required placeholder="Street, subdivision or condominium, unit or house number, gate access notes"></textarea>
-              </div>
-            </div>
-            <p class="booking-notice">By booking, you confirm that your residence is located within our operational areas in Laguna. Cash, GCash, Bank Transfers, or Credit Card payments are accepted.</p>
-            <button type="submit" class="btn-pill btn-gold">Secure In-Home Booking</button>
-          </form>
-        </div>
-
+        <h3>Message Us to Book</h3>
+        <p class="book-lead">Tap below to open a chat with Serenova Wellness. To confirm fast, just tell us:</p>
+        <ul class="book-checklist">
+          <li>Your name &amp; contact number</li>
+          <li>Treatment &amp; preferred duration (60 / 90 / 120 mins)</li>
+          <li>Complete address &amp; city, plus any gate or guardhouse instructions</li>
+          <li>Your preferred date &amp; time</li>
+        </ul>
+        <a class="btn-pill btn-messenger" data-messenger href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.24 0 0 4.95 0 11.64c0 3.5 1.43 6.52 3.77 8.61.2.17.31.43.32.7l.07 2.14c.02.68.72 1.12 1.34.85l2.39-1.06c.2-.09.43-.1.64-.05 1.1.3 2.26.46 3.47.46 6.76 0 12-4.95 12-11.65C24 4.95 18.76 0 12 0zm7.17 8.96l-3.52 5.59a1.8 1.8 0 0 1-2.6.48l-2.8-2.1a.72.72 0 0 0-.87 0l-3.78 2.87c-.5.38-1.16-.22-.83-.76l3.52-5.59a1.8 1.8 0 0 1 2.6-.48l2.8 2.1c.26.2.61.2.87 0l3.78-2.87c.5-.38 1.16.22.83.76z"/></svg>
+          Message Us to Book
+        </a>
+        <p class="book-notice">A 2-hour minimum per therapist applies to all in-home bookings. Service is available only within Cabuyao, Sta. Rosa, Calamba, and Bi&ntilde;an. We accept cash, GCash, and bank transfer.</p>
       </div>
     </div>
   </section>
@@ -948,7 +834,7 @@
         </details>
         <details class="faq-item">
           <summary>What are your payment guidelines?</summary>
-          <div class="faq-body">We support multiple payment options to make transactions seamless. You can pay via cash directly to your therapist, mobile wallet transfer (GCash), direct bank transfer, or secure online credit card processing via our integrated Xendit payment gateway.</div>
+          <div class="faq-body">We keep payment simple. You can pay cash directly to your therapist, send a GCash mobile-wallet transfer, or pay by direct bank transfer. We confirm the exact amount with you over Messenger before your session.</div>
         </details>
         <details class="faq-item">
           <summary>How do you handle estate security clearances and gated subdivisions?</summary>
@@ -964,24 +850,16 @@
   <div class="container">
     <div class="nav-logo">SERENOVA</div>
     <p>Premium in-home wellness for Cabuyao &bull; Sta. Rosa &bull; Calamba &bull; Bi&ntilde;an</p>
-    <p>Daily 10:00 AM &ndash; 1:00 AM &nbsp;|&nbsp; <a href="tel:09628570087">0962 857 0087</a></p>
+    <p>Daily 10:00 AM &ndash; 1:00 AM &nbsp;|&nbsp; <a href="#" data-messenger target="_blank" rel="noopener">Message us on Messenger</a></p>
   </div>
 </footer>
 
 <!-- SECTION H: PERSISTENT FLOATING CONVERSATIONAL CONSOLE -->
 <div class="console" id="console">
   <div class="console-panel">
-    <p>Need a session immediately? Speak directly with our dispatch office.</p>
+    <p>Need a session soon? Message our dispatch office directly on Messenger and we'll confirm right away.</p>
     <div class="console-links">
-      <a href="tel:09628570087">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        Call Dispatch: 0962 857 0087
-      </a>
-      <a href="#" id="consoleWhatsapp" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-        Chat via WhatsApp
-      </a>
-      <a href="https://m.me/serenovawellness" target="_blank" rel="noopener">
+      <a data-messenger href="#" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         Chat via Messenger
       </a>
@@ -992,10 +870,12 @@
   </button>
 </div>
 
-<div class="toast" id="toast" role="status"></div>
-
 <script>
-  var WHATSAPP_NUMBER = '639628570087';
+  /* Facebook Page: facebook.com/profile.php?id=61589424892080
+     m.me works with the numeric Page ID. Once you set a Page username,
+     you can swap this for 'https://m.me/YourPageUsername'. */
+  var MESSENGER_URL = 'https://m.me/61589424892080';
+  document.querySelectorAll('[data-messenger]').forEach(function (a) { a.href = MESSENGER_URL; });
 
   /* Keep content clear of the fixed banner + nav, whatever their wrapped height */
   var siteHeader = document.getElementById('siteHeader');
@@ -1078,77 +958,6 @@
 
   MENU.relaxation.forEach(function (s) { document.getElementById('relaxationGrid').appendChild(buildCard(s)); });
   MENU.therapeutic.forEach(function (s) { document.getElementById('therapeuticGrid').appendChild(buildCard(s)); });
-
-  /* ---------- Toast ---------- */
-  var toastEl = document.getElementById('toast');
-  var toastTimer;
-  function showToast(msg) {
-    toastEl.textContent = msg;
-    toastEl.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(function () { toastEl.classList.remove('show'); }, 3200);
-  }
-
-  /* ---------- Section G: copy template + WhatsApp gateways ---------- */
-  var TEMPLATE = [
-    'SERENOVA WELLNESS BOOKING REGISTRY',
-    '• Lead Client Name: [ Enter Name ]',
-    '• Contact Phone: [ Enter Mobile ]',
-    '• Specific Residence Address:',
-    '• Targeted City:',
-    '• Desired Treatment:',
-    '• Selected Duration: [ 60 Mins / 90 Mins / 120 Mins ]',
-    '• Number of Clients:',
-    '• Scheduled Date & Time:',
-    '• Gate Access Protocols: [ e.g., Pass required / Guardhouse pre-cleared ]'
-  ].join('\n');
-
-  var waUrl = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(TEMPLATE);
-  document.getElementById('whatsappGateway').href = waUrl;
-  document.getElementById('consoleWhatsapp').href = 'https://wa.me/' + WHATSAPP_NUMBER;
-
-  document.getElementById('copyTemplateBtn').addEventListener('click', function () {
-    function done() { showToast('Template Copied! Directing you to chat…'); }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(TEMPLATE).then(done, done);
-    } else {
-      var ta = document.createElement('textarea');
-      ta.value = TEMPLATE;
-      document.body.appendChild(ta);
-      ta.select();
-      try { document.execCommand('copy'); } catch (e) {}
-      document.body.removeChild(ta);
-      done();
-    }
-  });
-
-  /* ---------- Section G: web booking form ---------- */
-  var formDurations = document.getElementById('formDurations');
-  formDurations.addEventListener('click', function (e) {
-    var btn = e.target.closest('.duration-btn');
-    if (!btn) return;
-    formDurations.querySelectorAll('.duration-btn').forEach(function (b) { b.classList.remove('active'); });
-    btn.classList.add('active');
-  });
-
-  document.getElementById('bookingForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var form = e.target;
-    if (!form.reportValidity()) return;
-    var mins = formDurations.querySelector('.duration-btn.active').dataset.mins;
-    var msg = [
-      'SERENOVA WELLNESS BOOKING REGISTRY',
-      '• Lead Client Name: ' + form.fullName.value.trim(),
-      '• Contact Phone: ' + form.mobile.value.trim(),
-      '• Specific Residence Address: ' + form.address.value.trim(),
-      '• Targeted City: ' + form.city.value,
-      '• Desired Treatment: ' + form.style.value,
-      '• Selected Duration: ' + mins + ' Mins',
-      '• Scheduled Date & Time: ' + form.datetime.value.replace('T', ' ')
-    ].join('\n');
-    showToast('Booking request prepared! Directing you to chat…');
-    window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');
-  });
 
   /* ---------- Section H: floating console ---------- */
   var consoleEl = document.getElementById('console');
