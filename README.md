@@ -4,6 +4,12 @@ Internal dashboard for managing door-to-door massage bookings across multiple
 therapists, with automatic travel-time feasibility checks ("can Therapist A
 finish in Sta Rosa and still make the 10pm booking in Carmona?").
 
+Also in this repo: the customer-facing **Serenova Wellness landing page**
+(`landing/index.html`) — a self-contained static page (no build step, no
+dependencies) with the service menu and pricing, WhatsApp/Messenger booking
+gateways, and a web booking form. Open it directly in a browser or host it
+on any static file host.
+
 ## Quick start
 
 ```bash

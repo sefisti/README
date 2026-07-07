@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serenova Wellness — Premium In-Home Spa &amp; Massage in Laguna</title>
+<meta name="description" content="Serenova Wellness delivers licensed, vetted therapists directly to private estates, luxury condos, and hotel rooms in Cabuyao, Sta. Rosa, Calamba, and Biñan. Book a same-day in-home spa session.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0F251D;
+    --bg-deep: #0A1B15;
+    --card: #142F25;
+    --gold: #C5A059;
+    --text: #EAE5D9;
+    --muted: #A8A396;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --label: 'Montserrat', 'Inter', sans-serif;
+    --gold-30: rgba(197, 160, 89, 0.30);
+    --gold-20: rgba(197, 160, 89, 0.20);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+  [id] { scroll-margin-top: 120px; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img, svg { max-width: 100%; display: block; }
+  a { color: var(--gold); text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; }
+
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+  /* ============ SECTION A: GEO-VALIDATOR BANNER ============ */
+  .site-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 60;
+  }
+  .geo-banner {
+    background: var(--gold);
+    color: var(--bg);
+    font-family: var(--label);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    text-align: center;
+    padding: 8px 16px;
+  }
+
+  /* ============ SECTION B: GLASSMORPHIC NAV ============ */
+  .nav {
+    background: rgba(15, 37, 29, 0.80);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gold-20);
+    transition: all 300ms ease;
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+  }
+  .nav-links {
+    display: none;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 300ms ease;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  .btn-pill {
+    display: inline-block;
+    border-radius: 999px;
+    font-family: var(--label);
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 12px 26px;
+    transition: all 300ms ease;
+    border: 1px solid transparent;
+    text-align: center;
+  }
+  .btn-gold {
+    background: var(--gold);
+    color: var(--bg);
+  }
+  .btn-gold:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 24px rgba(197, 160, 89, 0.45);
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--gold-30);
+  }
+  .btn-outline:hover { border-color: var(--gold); }
+  .nav .btn-pill { padding: 10px 22px; }
+
+  @media (min-width: 900px) {
+    .nav-links { display: flex; }
+  }
+  @media (max-width: 480px) {
+    .nav-logo { font-size: 20px; letter-spacing: 0.16em; }
+    .nav .btn-pill { padding: 9px 14px; font-size: 11px; }
+    .nav-inner { height: 60px; }
+  }
+
+  main { padding-top: 101px; }
+
+  /* ============ SECTION C: HERO ============ */
+  .hero {
+    padding: 72px 0 88px;
+    background:
+      radial-gradient(ellipse at 75% 10%, rgba(197, 160, 89, 0.08), transparent 55%),
+      var(--bg);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  @media (min-width: 900px) {
+    .hero-grid { grid-template-columns: 1.05fr 0.95fr; }
+  }
+  .hero-tag {
+    font-family: var(--label);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(34px, 5vw, 48px);
+    line-height: 1.15;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+  .hero-sub {
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 54ch;
+    margin-bottom: 28px;
+  }
+  .trust-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    margin-bottom: 32px;
+  }
+  .trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .trust-badge svg { width: 16px; height: 16px; flex: none; stroke: var(--gold); }
+  .cta-group { display: flex; flex-wrap: wrap; gap: 16px; }
+
+  .hero-visual {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--gold-30);
+    aspect-ratio: 4 / 3;
+    box-shadow: 0 32px 64px rgba(0, 0, 0, 0.35);
+  }
+  .hero-visual svg.scene { width: 100%; height: 100%; }
+  .hero-badge {
+    position: absolute;
+    bottom: 16px; right: 16px;
+    background: rgba(15, 37, 29, 0.80);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--gold-20);
+    border-radius: 12px;
+    padding: 10px 18px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 17px;
+    color: var(--text);
+  }
+
+  /* ============ SECTION HEADERS ============ */
+  .section { padding: 88px 0; }
+  .section-header { text-align: center; max-width: 640px; margin: 0 auto 56px; }
+  .section-kicker {
+    font-family: var(--label);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .section-sub { color: var(--muted); margin-top: 14px; }
+
+  /* ============ SECTION D: TRUST & SAFETY ============ */
+  .safety {
+    background: var(--bg-deep);
+    border-top: 1px solid var(--gold-30);
+    border-bottom: 1px solid var(--gold-30);
+  }
+  .safety-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  @media (min-width: 820px) {
+    .safety-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .safety-card { text-align: center; padding: 0 12px; }
+  .safety-icon {
+    width: 56px; height: 56px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    border: 1px solid var(--gold-30);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .safety-icon svg { width: 26px; height: 26px; stroke: var(--gold); }
+  .safety-card h3 {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .safety-card p { color: var(--muted); font-size: 15px; }
+
+  /* ============ SECTION E: MENU ============ */
+  .menu-series-label {
+    font-family: var(--label);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-align: center;
+    margin: 48px 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .menu-series-label::before, .menu-series-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--gold-20);
+  }
+  .menu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  @media (min-width: 820px) {
+    .menu-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .menu-card {
+    background: var(--card);
+    border: 1px solid var(--gold-30);
+    border-radius: 14px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    transition: all 300ms ease;
+  }
+  .menu-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-3px);
+  }
+  .menu-card h3 {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .menu-card p {
+    color: var(--muted);
+    font-size: 15px;
+    flex: 1;
+    margin-bottom: 22px;
+  }
+  .duration-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .duration-btn {
+    flex: 1;
+    background: transparent;
+    border: 1px solid var(--gold-30);
+    color: var(--muted);
+    border-radius: 8px;
+    padding: 10px 4px;
+    font-family: var(--label);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    transition: all 300ms ease;
+  }
+  .duration-btn:hover { border-color: var(--gold); color: var(--text); }
+  .duration-btn.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--bg);
+  }
+  .menu-card .btn-pill { width: 100%; }
+
+  /* ============ SECTION F: THE JOURNEY ============ */
+  .journey-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    position: relative;
+  }
+  @media (min-width: 820px) {
+    .journey-grid { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .journey-grid::before {
+      content: "";
+      position: absolute;
+      top: 27px; left: 16%; right: 16%;
+      height: 1px;
+      background: var(--gold-30);
+    }
+  }
+  .journey-step { text-align: center; position: relative; padding: 0 8px; }
+  .journey-num {
+    width: 54px; height: 54px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: var(--card);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+  .journey-step h3 {
+    font-family: var(--serif);
+    font-size: 23px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .journey-step p { color: var(--muted); font-size: 15px; }
+
+  /* ============ SECTION G: BOOKING TERMINAL ============ */
+  .booking-panel {
+    background: rgba(20, 47, 37, 0.80);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--gold-20);
+    border-radius: 18px;
+    padding: 36px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+  @media (min-width: 940px) {
+    .booking-panel { grid-template-columns: 1fr 1fr; }
+  }
+  .booking-col h3 {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .booking-col .col-sub { color: var(--muted); font-size: 14px; margin-bottom: 22px; }
+
+  .copy-block {
+    background: var(--bg-deep);
+    border: 1px solid var(--gold-20);
+    border-radius: 10px;
+    padding: 18px 20px;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: var(--text);
+    white-space: pre-line;
+    margin-bottom: 10px;
+  }
+  .copy-note {
+    font-size: 12.5px;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+  .gateway-row { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
+  .gateway-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px solid var(--gold-30);
+    border-radius: 999px;
+    padding: 13px 20px;
+    font-family: var(--label);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    background: transparent;
+    transition: all 300ms ease;
+  }
+  .gateway-btn svg { width: 18px; height: 18px; flex: none; }
+  .gateway-whatsapp:hover { border-color: #25D366; box-shadow: 0 0 18px rgba(37, 211, 102, 0.25); }
+  .gateway-messenger:hover { border-color: #0084FF; box-shadow: 0 0 18px rgba(0, 132, 255, 0.25); }
+
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-grid > .form-field { min-width: 0; }
+  @media (max-width: 560px) {
+    .form-grid { grid-template-columns: 1fr; }
+    .form-field { grid-column: 1 / -1; }
+  }
+  .form-field { display: flex; flex-direction: column; gap: 6px; }
+  .form-field.full { grid-column: 1 / -1; }
+  .form-field label {
+    font-family: var(--label);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    background: var(--bg-deep);
+    border: 1px solid var(--gold-20);
+    border-radius: 8px;
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 14px;
+    padding: 11px 14px;
+    transition: border-color 300ms ease;
+    width: 100%;
+  }
+  .form-field textarea { resize: vertical; min-height: 70px; }
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+  .form-field input::-webkit-calendar-picker-indicator { filter: invert(0.85); }
+  .toggle-row { display: flex; gap: 10px; }
+  .booking-notice {
+    font-size: 12.5px;
+    color: var(--muted);
+    margin: 18px 0;
+  }
+  #bookingForm .btn-pill { width: 100%; padding: 15px; }
+
+  /* ============ FAQ ============ */
+  .faq-list { max-width: 760px; margin: 0 auto; }
+  .faq-item {
+    border: 1px solid var(--gold-20);
+    border-radius: 12px;
+    background: var(--card);
+    margin-bottom: 14px;
+    overflow: hidden;
+    transition: border-color 300ms ease;
+  }
+  .faq-item[open] { border-color: var(--gold-30); }
+  .faq-item summary {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: "+";
+    font-family: var(--sans);
+    font-size: 22px;
+    color: var(--gold);
+    transition: transform 300ms ease;
+    flex: none;
+  }
+  .faq-item[open] summary::after { transform: rotate(45deg); }
+  .faq-item .faq-body {
+    padding: 0 24px 20px;
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    border-top: 1px solid var(--gold-20);
+    background: var(--bg-deep);
+    padding: 40px 0;
+    text-align: center;
+  }
+  footer .nav-logo { font-size: 22px; margin-bottom: 10px; }
+  footer p { color: var(--muted); font-size: 13px; }
+
+  /* ============ SECTION H: FLOATING CONSOLE ============ */
+  .console {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    z-index: 70;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+  }
+  .console-panel {
+    background: rgba(15, 37, 29, 0.80);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--gold-20);
+    border-radius: 16px;
+    padding: 18px 20px;
+    width: 264px;
+    opacity: 0;
+    transform: translateY(8px);
+    pointer-events: none;
+    transition: all 300ms ease;
+  }
+  .console.open .console-panel {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .console-panel p { font-size: 14px; margin-bottom: 14px; }
+  .console-links { display: flex; flex-direction: column; gap: 8px; }
+  .console-links a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    border: 1px solid var(--gold-20);
+    border-radius: 8px;
+    padding: 9px 12px;
+    transition: border-color 300ms ease;
+  }
+  .console-links a:hover { border-color: var(--gold); }
+  .console-links svg { width: 15px; height: 15px; stroke: var(--gold); flex: none; }
+  .console-toggle {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: rgba(15, 37, 29, 0.80);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--gold-30);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 300ms ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  }
+  .console-toggle:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 24px rgba(197, 160, 89, 0.4);
+  }
+  .console-toggle svg { width: 26px; height: 26px; stroke: var(--gold); }
+
+  /* ============ TOAST ============ */
+  .toast {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translate(-50%, 16px);
+    z-index: 80;
+    background: var(--gold);
+    color: var(--bg);
+    font-family: var(--label);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 13px 26px;
+    border-radius: 999px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 300ms ease;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    max-width: calc(100vw - 48px);
+    text-align: center;
+  }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+<!-- SECTION A: PERSISTENT GEO-VALIDATOR BANNER -->
+<div class="geo-banner">Now delivering elite wellness directly to exclusive estates in: Cabuyao &bull; Sta. Rosa &bull; Calamba &bull; Bi&ntilde;an</div>
+
+<!-- SECTION B: FLOATING GLASSMORPHIC NAVIGATION HEADER -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo">SERENOVA</a>
+    <ul class="nav-links">
+      <li><a href="#services">Our Services</a></li>
+      <li><a href="#safety">The Safety Ritual</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#faqs">FAQs</a></li>
+    </ul>
+    <a href="#booking" class="btn-pill btn-gold">Book Same-Day Session</a>
+  </div>
+</nav>
+</header>
+
+<main>
+
+  <!-- SECTION C: HERO RETREAT (EMERALD WASH SPLIT-SCREEN) -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-tag">The Ultimate In-Home Sanctuary</div>
+        <h1>The Premium Spa Experience that Journeys to Your Doorstep</h1>
+        <p class="hero-sub">Skip the traffic, gated-community security friction, and crowded waiting rooms of Laguna. We dispatch highly vetted, licensed therapists with specialized equipment directly to your private estate, luxury condo, or hotel room.</p>
+        <div class="trust-badges">
+          <div class="trust-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            Licensed &amp; Vetted Therapists
+          </div>
+          <div class="trust-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            Available Daily: 10:00 AM &ndash; 1:00 AM
+          </div>
+          <div class="trust-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Highly-Rated Premium Care
+          </div>
+        </div>
+        <div class="cta-group">
+          <a href="#booking" class="btn-pill btn-gold">Book Same-Day Session</a>
+          <a href="#services" class="btn-pill btn-outline">Explore Spa Menu</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <svg class="scene" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A warm-lit private bedroom transformed into a professional spa setup with a massage bed, rolled linens, and organic oils">
+          <defs>
+            <linearGradient id="roomGlow" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#1d3a2e"/>
+              <stop offset="0.6" stop-color="#152b21"/>
+              <stop offset="1" stop-color="#0f2018"/>
+            </linearGradient>
+            <radialGradient id="lampGlow" cx="0.5" cy="0.5" r="0.5">
+              <stop offset="0" stop-color="#e8c98a" stop-opacity="0.85"/>
+              <stop offset="0.5" stop-color="#c5a059" stop-opacity="0.25"/>
+              <stop offset="1" stop-color="#c5a059" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="bedLinen" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#f2ecdd"/>
+              <stop offset="1" stop-color="#d8cfb8"/>
+            </linearGradient>
+            <linearGradient id="windowLight" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#e8c98a" stop-opacity="0.30"/>
+              <stop offset="1" stop-color="#e8c98a" stop-opacity="0.04"/>
+            </linearGradient>
+          </defs>
+          <rect width="800" height="600" fill="url(#roomGlow)"/>
+          <!-- window with warm dusk light -->
+          <rect x="80" y="70" width="200" height="240" rx="6" fill="url(#windowLight)" stroke="#c5a059" stroke-opacity="0.35" stroke-width="3"/>
+          <line x1="180" y1="70" x2="180" y2="310" stroke="#c5a059" stroke-opacity="0.35" stroke-width="3"/>
+          <line x1="80" y1="190" x2="280" y2="190" stroke="#c5a059" stroke-opacity="0.35" stroke-width="3"/>
+          <!-- floor lamp glow -->
+          <circle cx="640" cy="180" r="150" fill="url(#lampGlow)"/>
+          <line x1="640" y1="210" x2="640" y2="420" stroke="#8a744a" stroke-width="6"/>
+          <path d="M600 150 L680 150 L664 212 L616 212 Z" fill="#c5a059" opacity="0.85"/>
+          <!-- floor line -->
+          <rect x="0" y="420" width="800" height="180" fill="#0c1d16"/>
+          <!-- massage bed -->
+          <rect x="220" y="330" width="380" height="46" rx="20" fill="url(#bedLinen)"/>
+          <rect x="234" y="322" width="70" height="20" rx="10" fill="#efe7d4"/>
+          <rect x="248" y="376" width="14" height="86" rx="4" fill="#3c3226"/>
+          <rect x="558" y="376" width="14" height="86" rx="4" fill="#3c3226"/>
+          <line x1="255" y1="400" x2="565" y2="400" stroke="#3c3226" stroke-width="6"/>
+          <!-- rolled towels -->
+          <circle cx="660" cy="452" r="17" fill="#efe7d4"/>
+          <circle cx="660" cy="452" r="9" fill="#d8cfb8"/>
+          <circle cx="697" cy="452" r="17" fill="#efe7d4"/>
+          <circle cx="697" cy="452" r="9" fill="#d8cfb8"/>
+          <rect x="638" y="466" width="82" height="10" rx="4" fill="#20392d"/>
+          <!-- oil bottles on side table -->
+          <rect x="118" y="380" width="90" height="10" rx="4" fill="#20392d"/>
+          <rect x="126" y="390" width="8" height="70" fill="#20392d"/>
+          <rect x="192" y="390" width="8" height="70" fill="#20392d"/>
+          <rect x="136" y="342" width="16" height="38" rx="4" fill="#c5a059" opacity="0.9"/>
+          <rect x="140" y="332" width="8" height="12" rx="2" fill="#8a744a"/>
+          <rect x="162" y="352" width="14" height="28" rx="4" fill="#a8895a" opacity="0.9"/>
+          <!-- candles -->
+          <rect x="418" y="452" width="12" height="22" rx="3" fill="#efe7d4"/>
+          <ellipse cx="424" cy="447" rx="4" ry="7" fill="#e8c98a"/>
+          <rect x="444" y="458" width="12" height="16" rx="3" fill="#efe7d4"/>
+          <ellipse cx="450" cy="453" rx="4" ry="7" fill="#e8c98a"/>
+          <!-- ambient plant -->
+          <path d="M60 470 q10 -70 34 -96 M60 470 q-4 -60 -26 -84 M60 470 q26 -46 54 -58" stroke="#2e5240" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <path d="M52 470 h18 l6 60 h-30 z" fill="#20392d"/>
+        </svg>
+        <div class="hero-badge">Your room becomes the sanctuary.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION D: THE SOMATIC TRUST & SAFETY PROTOCOLS -->
+  <section class="section safety" id="safety">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">The Safety Ritual</div>
+        <h2 class="section-title">Clinical Standards, Delivered with Grace</h2>
+      </div>
+      <div class="safety-grid">
+        <div class="safety-card">
+          <div class="safety-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M8.5 9.5 12 7l3.5 2.5v4L12 16l-3.5-2.5z"/></svg>
+          </div>
+          <h3>Fresh Uniform Protocol</h3>
+          <p>To ensure absolute clinical sanitation, our therapists change into a fresh, hermetically sealed uniform inside your residence prior to setting up your wellness space.</p>
+        </div>
+        <div class="safety-card">
+          <div class="safety-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7c3.2 4 6 7.2 6 11a6 6 0 0 1-12 0c0-3.8 2.8-7 6-11z"/><path d="M9.5 14a2.5 2.5 0 0 0 2.5 2.5"/></svg>
+          </div>
+          <h3>Vacuum-Sealed Linens</h3>
+          <p>Every sheet, face cover, and towel is single-use, medically sanitized, and opened from vacuum-sealed packaging directly in front of you.</p>
+        </div>
+        <div class="safety-card">
+          <div class="safety-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="7"/><path d="M9.5 10l1.8 1.8 3.2-3.6"/><path d="M8 16.5 6.5 22l5.5-3 5.5 3-1.5-5.5"/></svg>
+          </div>
+          <h3>Licensed Professionals Only</h3>
+          <p>Every Serenova practitioner undergoes rigorous background checks, holds valid professional certifications, and completes extensive luxury service training.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION E: INTERACTIVE MENU & CHOICE ARCHITECTURE -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-header" id="pricing">
+        <div class="section-kicker">Our Services</div>
+        <h2 class="section-title">Curated Treatments, Transparent Pricing</h2>
+        <p class="section-sub">Select a duration on any treatment to see your exact rate. No hidden fees within our Laguna service zones.</p>
+      </div>
+
+      <div class="menu-series-label">Relaxation Series</div>
+      <div class="menu-grid" id="relaxationGrid"></div>
+
+      <div class="menu-series-label">Therapeutic Relief Series</div>
+      <div class="menu-grid" id="therapeuticGrid"></div>
+    </div>
+  </section>
+
+  <!-- SECTION F: "THE JOURNEY" — THREE-STAGE LOGISTICAL TIMELINE -->
+  <section class="section safety" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">How It Works</div>
+        <h2 class="section-title">Your Journey to Deep Rest</h2>
+      </div>
+      <div class="journey-grid">
+        <div class="journey-step">
+          <div class="journey-num">1</div>
+          <h3>Select Your Treatment &amp; Time</h3>
+          <p>Explore our specialized spa menu, choose your preferred duration, and specify your desired arrival time. We accommodate scheduled bookings as well as immediate, same-day requests.</p>
+        </div>
+        <div class="journey-step">
+          <div class="journey-num">2</div>
+          <h3>We Confirm Your Logistics</h3>
+          <p>Our automated desk confirms therapist availability, assigns your licensed practitioner, and clarifies gate access protocols for your specific estate or condominium.</p>
+        </div>
+        <div class="journey-step">
+          <div class="journey-num">3</div>
+          <h3>Unwind and Rest</h3>
+          <p>Our uniform-compliant therapist arrives with sterilized linens, natural warming oils, and soothing ambient music to transform your bedroom into an elite sanctuary.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION G: DOUBLE-GATEWAY LEAD ENGINE & BOOKING TERMINAL -->
+  <section class="section" id="booking">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Reserve Your Session</div>
+        <h2 class="section-title">Book in Under a Minute</h2>
+        <p class="section-sub">Chat with our dispatch office directly, or use the secure web booking engine — whichever feels effortless.</p>
+      </div>
+      <div class="booking-panel">
+
+        <!-- Left: Conversational Instant-Booking Terminal -->
+        <div class="booking-col">
+          <h3>Instant Chat Booking</h3>
+          <p class="col-sub">The fast path — copy the template, paste it into chat, and our dispatch office handles the rest.</p>
+          <div class="copy-block" id="bookingTemplate">SERENOVA WELLNESS BOOKING REGISTRY
+&bull; Lead Client Name: [ Enter Name ]
+&bull; Contact Phone: [ Enter Mobile ]
+&bull; Specific Residence Address:
+&bull; Targeted City:
+&bull; Desired Treatment:
+&bull; Selected Duration: [ 60 Mins / 90 Mins / 120 Mins ]
+&bull; Number of Clients:
+&bull; Scheduled Date &amp; Time:
+&bull; Gate Access Protocols: [ e.g., Pass required / Guardhouse pre-cleared ]</div>
+          <p class="copy-note">Notice: A 2-hour minimum per therapist applies to all domestic bookings.</p>
+          <button class="btn-pill btn-outline" id="copyTemplateBtn" style="width:100%">Copy Booking Template</button>
+          <div class="gateway-row">
+            <a class="gateway-btn gateway-whatsapp" id="whatsappGateway" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.11 3.22 5.1 4.51.71.31 1.27.5 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.82 9.82 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 9.88 9.89c0 5.45-4.44 9.88-9.89 9.88zm8.41-18.29A11.8 11.8 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.59 5.94L.06 24l6.31-1.65a11.88 11.88 0 0 0 5.68 1.44h.01c6.55 0 11.89-5.34 11.89-11.9a11.82 11.82 0 0 0-3.49-8.4z"/></svg>
+              Book Instantly via WhatsApp
+            </a>
+            <a class="gateway-btn gateway-messenger" href="https://m.me/serenovawellness" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="#0084FF"><path d="M12 0C5.24 0 0 4.95 0 11.64c0 3.5 1.43 6.52 3.77 8.61.2.17.31.43.32.7l.07 2.14c.02.68.72 1.12 1.34.85l2.39-1.06c.2-.09.43-.1.64-.05 1.1.3 2.26.46 3.47.46 6.76 0 12-4.95 12-11.65C24 4.95 18.76 0 12 0zm7.17 8.96l-3.52 5.59a1.8 1.8 0 0 1-2.6.48l-2.8-2.1a.72.72 0 0 0-.87 0l-3.78 2.87c-.5.38-1.16-.22-.83-.76l3.52-5.59a1.8 1.8 0 0 1 2.6-.48l2.8 2.1c.26.2.61.2.87 0l3.78-2.87c.5-.38 1.16.22.83.76z"/></svg>
+              Book Instantly via Messenger
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Integrated Secure Web Booking Engine -->
+        <div class="booking-col">
+          <h3>Secure Web Booking</h3>
+          <p class="col-sub">A standard, self-directed checkout pipeline — we confirm by SMS or chat.</p>
+          <form id="bookingForm" novalidate>
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required autocomplete="name">
+              </div>
+              <div class="form-field">
+                <label for="mobile">Mobile Number</label>
+                <input type="tel" id="mobile" name="mobile" required autocomplete="tel" placeholder="09XX XXX XXXX">
+              </div>
+              <div class="form-field full">
+                <label for="style">Massage Style</label>
+                <select id="style" name="style" required>
+                  <option value="" disabled selected>Select a treatment&hellip;</option>
+                  <option>Swedish Massage</option>
+                  <option>Combination Massage</option>
+                  <option>Hot Stone Therapy</option>
+                  <option>Deep Tissue Massage</option>
+                  <option>Focus Trigger Point</option>
+                  <option>Signature Massage</option>
+                  <option>Traditional Ventosa</option>
+                </select>
+              </div>
+              <div class="form-field full">
+                <label>Preferred Duration</label>
+                <div class="toggle-row" id="formDurations">
+                  <button type="button" class="duration-btn" data-mins="60">60 Mins</button>
+                  <button type="button" class="duration-btn active" data-mins="90">90 Mins</button>
+                  <button type="button" class="duration-btn" data-mins="120">120 Mins</button>
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="city">Location City</label>
+                <select id="city" name="city" required>
+                  <option value="" disabled selected>Select your city&hellip;</option>
+                  <option>Cabuyao</option>
+                  <option>Sta. Rosa</option>
+                  <option>Calamba</option>
+                  <option>Bi&ntilde;an</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="datetime">Preferred Date &amp; Time</label>
+                <input type="datetime-local" id="datetime" name="datetime" required>
+              </div>
+              <div class="form-field full">
+                <label for="address">Specific Estate / Gated Community Address</label>
+                <textarea id="address" name="address" required placeholder="Street, subdivision or condominium, unit or house number, gate access notes"></textarea>
+              </div>
+            </div>
+            <p class="booking-notice">By booking, you confirm that your residence is located within our operational areas in Laguna. Cash, GCash, Bank Transfers, or Credit Card payments are accepted.</p>
+            <button type="submit" class="btn-pill btn-gold">Secure In-Home Booking</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPREHENSIVE FAQS -->
+  <section class="section safety" id="faqs">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">FAQs</div>
+        <h2 class="section-title">Everything You Need to Know</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What operational areas do you serve in Laguna?</summary>
+          <div class="faq-body">We deliver professional services exclusively to private residences, secured subdivisions, luxury condominiums, and hotel rooms within Cabuyao, Sta. Rosa, Calamba, and Bi&ntilde;an.</div>
+        </details>
+        <details class="faq-item">
+          <summary>How does a home-service massage work? What do I need to prepare?</summary>
+          <div class="faq-body">You do not need to prepare anything. Our licensed therapists arrive with professional massage beds, sanitized linens, natural warming oils, and therapeutic ambient music. You only need to provide a comfortable room with sufficient space to set up the massage bed.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Is there a minimum booking requirement for a home session?</summary>
+          <div class="faq-body">Yes, to maintain operational viability, ensure fair compensation for our therapists, and offset travel expenses, we implement a strict minimum booking of 2 hours per therapist per household.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What are your payment guidelines?</summary>
+          <div class="faq-body">We support multiple payment options to make transactions seamless. You can pay via cash directly to your therapist, mobile wallet transfer (GCash), direct bank transfer, or secure online credit card processing via our integrated Xendit payment gateway.</div>
+        </details>
+        <details class="faq-item">
+          <summary>How do you handle estate security clearances and gated subdivisions?</summary>
+          <div class="faq-body">When submitting your booking request, please provide details on gate access rules, condominium protocols, or visitor passes. Our dispatch team coordinates with you to pre-clear our therapists with subdivision guardhouses, ensuring a smooth arrival.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="nav-logo">SERENOVA</div>
+    <p>Premium in-home wellness for Cabuyao &bull; Sta. Rosa &bull; Calamba &bull; Bi&ntilde;an</p>
+    <p>Daily 10:00 AM &ndash; 1:00 AM &nbsp;|&nbsp; <a href="tel:09628570087">0962 857 0087</a></p>
+  </div>
+</footer>
+
+<!-- SECTION H: PERSISTENT FLOATING CONVERSATIONAL CONSOLE -->
+<div class="console" id="console">
+  <div class="console-panel">
+    <p>Need a session immediately? Speak directly with our dispatch office.</p>
+    <div class="console-links">
+      <a href="tel:09628570087">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call Dispatch: 0962 857 0087
+      </a>
+      <a href="#" id="consoleWhatsapp" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        Chat via WhatsApp
+      </a>
+      <a href="https://m.me/serenovawellness" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Chat via Messenger
+      </a>
+    </div>
+  </div>
+  <button class="console-toggle" id="consoleToggle" aria-label="Contact dispatch office" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+  </button>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+  var WHATSAPP_NUMBER = '639628570087';
+
+  /* Keep content clear of the fixed banner + nav, whatever their wrapped height */
+  var siteHeader = document.getElementById('siteHeader');
+  function padForHeader() {
+    document.querySelector('main').style.paddingTop = siteHeader.offsetHeight + 'px';
+  }
+  window.addEventListener('resize', padForHeader);
+  padForHeader();
+
+  /* ---------- Section E: interactive menu ---------- */
+  var MENU = {
+    relaxation: [
+      { name: 'Swedish Massage',
+        desc: 'Designed to promote deep mental relaxation and full-body physical recovery. Uses long, gliding strokes to dissolve muscle stress and improve circulation.',
+        prices: { 60: 499, 90: 749, 120: 999 } },
+      { name: 'Combination Massage',
+        desc: 'Our signature fusion of deep tissue targeting and gentle Swedish strokes. Customized to address your specific stress points.',
+        prices: { 60: 499, 90: 749, 120: 999 } },
+      { name: 'Hot Stone Therapy',
+        desc: 'Volcanic stones heated to precise temperatures placed on strategic energy meridians to melt deep physical stiffness and soothe the nervous system.',
+        prices: { 90: 899, 120: 1199 } }
+    ],
+    therapeutic: [
+      { name: 'Deep Tissue Massage',
+        desc: 'Highly focused therapy utilizing deep finger pressure and slow, structured strokes to target chronic, deep-seated muscle tension and knots.',
+        prices: { 60: 599, 90: 849, 120: 1099 } },
+      { name: 'Focus Trigger Point',
+        desc: 'A clinical session focusing on concentrated muscle groups to relieve intense stiffness caused by repetitive stress or bad posture.',
+        prices: { 60: 599, 90: 849, 120: 1099 } },
+      { name: 'Signature Massage',
+        desc: 'An elite, multi-sensory therapeutic journey combining heated organic herbal compresses, assisted stretching, and warm oils.',
+        prices: { 60: 649, 90: 899, 120: 1149 } },
+      { name: 'Traditional Ventosa',
+        desc: 'Traditional cupping therapy designed to release stagnant energy, draw out deep muscular toxins, and provide immediate upper-back relief.',
+        prices: { 90: 899, 120: 1149 } }
+    ]
+  };
+
+  function peso(n) { return '₱' + n.toLocaleString('en-PH'); }
+
+  function buildCard(service) {
+    var card = document.createElement('div');
+    card.className = 'menu-card';
+
+    var title = document.createElement('h3');
+    title.textContent = service.name;
+    var desc = document.createElement('p');
+    desc.textContent = service.desc;
+
+    var row = document.createElement('div');
+    row.className = 'duration-row';
+    var action = document.createElement('a');
+    action.className = 'btn-pill btn-gold';
+    action.href = '#booking';
+
+    var durations = Object.keys(service.prices);
+    function select(mins) {
+      row.querySelectorAll('.duration-btn').forEach(function (b) {
+        b.classList.toggle('active', b.dataset.mins === String(mins));
+      });
+      action.textContent = 'Book ' + mins + ' Mins — ' + peso(service.prices[mins]);
+    }
+    durations.forEach(function (mins) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'duration-btn';
+      btn.dataset.mins = mins;
+      btn.textContent = mins + ' mins';
+      btn.addEventListener('click', function () { select(mins); });
+      row.appendChild(btn);
+    });
+    select(durations[0]);
+
+    card.appendChild(title);
+    card.appendChild(desc);
+    card.appendChild(row);
+    card.appendChild(action);
+    return card;
+  }
+
+  MENU.relaxation.forEach(function (s) { document.getElementById('relaxationGrid').appendChild(buildCard(s)); });
+  MENU.therapeutic.forEach(function (s) { document.getElementById('therapeuticGrid').appendChild(buildCard(s)); });
+
+  /* ---------- Toast ---------- */
+  var toastEl = document.getElementById('toast');
+  var toastTimer;
+  function showToast(msg) {
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toastEl.classList.remove('show'); }, 3200);
+  }
+
+  /* ---------- Section G: copy template + WhatsApp gateways ---------- */
+  var TEMPLATE = [
+    'SERENOVA WELLNESS BOOKING REGISTRY',
+    '• Lead Client Name: [ Enter Name ]',
+    '• Contact Phone: [ Enter Mobile ]',
+    '• Specific Residence Address:',
+    '• Targeted City:',
+    '• Desired Treatment:',
+    '• Selected Duration: [ 60 Mins / 90 Mins / 120 Mins ]',
+    '• Number of Clients:',
+    '• Scheduled Date & Time:',
+    '• Gate Access Protocols: [ e.g., Pass required / Guardhouse pre-cleared ]'
+  ].join('\n');
+
+  var waUrl = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(TEMPLATE);
+  document.getElementById('whatsappGateway').href = waUrl;
+  document.getElementById('consoleWhatsapp').href = 'https://wa.me/' + WHATSAPP_NUMBER;
+
+  document.getElementById('copyTemplateBtn').addEventListener('click', function () {
+    function done() { showToast('Template Copied! Directing you to chat…'); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(TEMPLATE).then(done, done);
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = TEMPLATE;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      done();
+    }
+  });
+
+  /* ---------- Section G: web booking form ---------- */
+  var formDurations = document.getElementById('formDurations');
+  formDurations.addEventListener('click', function (e) {
+    var btn = e.target.closest('.duration-btn');
+    if (!btn) return;
+    formDurations.querySelectorAll('.duration-btn').forEach(function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+  });
+
+  document.getElementById('bookingForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var form = e.target;
+    if (!form.reportValidity()) return;
+    var mins = formDurations.querySelector('.duration-btn.active').dataset.mins;
+    var msg = [
+      'SERENOVA WELLNESS BOOKING REGISTRY',
+      '• Lead Client Name: ' + form.fullName.value.trim(),
+      '• Contact Phone: ' + form.mobile.value.trim(),
+      '• Specific Residence Address: ' + form.address.value.trim(),
+      '• Targeted City: ' + form.city.value,
+      '• Desired Treatment: ' + form.style.value,
+      '• Selected Duration: ' + mins + ' Mins',
+      '• Scheduled Date & Time: ' + form.datetime.value.replace('T', ' ')
+    ].join('\n');
+    showToast('Booking request prepared! Directing you to chat…');
+    window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');
+  });
+
+  /* ---------- Section H: floating console ---------- */
+  var consoleEl = document.getElementById('console');
+  var consoleToggle = document.getElementById('consoleToggle');
+  consoleToggle.addEventListener('click', function () {
+    var open = consoleEl.classList.toggle('open');
+    consoleToggle.setAttribute('aria-expanded', String(open));
+  });
+  consoleEl.addEventListener('mouseenter', function () {
+    consoleEl.classList.add('open');
+    consoleToggle.setAttribute('aria-expanded', 'true');
+  });
+  document.addEventListener('click', function (e) {
+    if (!consoleEl.contains(e.target)) {
+      consoleEl.classList.remove('open');
+      consoleToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+</script>
+</body>
+</html>
